@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction</title>
+</head>
+<body>
+    <h1>Diabetes Prediction</h1>
+
+    <p>Enter username and password:</p>
+    <form id="login-form">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <button type="submit">Login</button>
+    </form>
+
+    <div id="content" style="display: none;">
+
+        <p>Upload your dataset (CSV file):</p>
+        <form id="upload-form" enctype="multipart/form-data">
+            <input type="file" id="dataset" name="dataset" accept=".csv" required>
+            <br>
+            <button type="submit">Upload</button>
+        </form>
+
+        <h2>Predict Diabetes</h2>
+        <form id="predict-form">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+            <br>
+            <label for="bmi">BMI:</label>
+            <input type="number" id="bmi" name="bmi" required>
+            <br>
+            <button type="submit">Predict</button>
+        </form>
+
+        <p id="prediction"></p>
+
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('login-form');
+        const content = document.getElementById('content');
+        const uploadForm = document.getElementById('upload-form');
+        const predictForm = document.getElementById('predict-form');
+        const prediction = document.getElementById('prediction');
+
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Simplistic authentication (replace with a robust system)
+            if (this.username.value === 'your_username' && this.password.value === 'your_password') {
+                content.style.display = 'block';
+                this.style.display = 'none'; // Hide login form after successful login (for demonstration)
+            } else {
+                alert('Invalid credentials');
+            }
+        });
+
+        uploadForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Handle dataset upload and preview (replace with your logic)
+            const file = this.dataset.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const data = e.target.result;
+                    // Replace with your CSV parsing logic (e.g., using a library)
+                    // ...
+                };
+                reader.readAsText(file);
+            }
+        });
+
+        predictForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Get user input data and call your prediction function (from separate script)
+            const age = parseFloat(document.getElementById('age').value);
+            const bmi = parseFloat(document.getElementById('bmi').value);
+            // Call your prediction function with user data (replace with actual call)
+            const predictionResult = predict_diabetes([age, bmi]); // Assuming prediction_diabetes function exists
+            prediction.textContent = `Predicted outcome: ${predictionResult}`;
+        });
+    </script>
+</body>
+</html>
