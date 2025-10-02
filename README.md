@@ -1,27 +1,18 @@
-🩺 Diabetes Prediction Web App
+# 🩺 **Diabetes Prediction Web App**
 
-A simple Flask web application for predicting diabetes using Machine Learning (SVM).
+A simple **Flask web application** for predicting diabetes using **Machine Learning (SVM)**. 
 
-📊 Example Prediction Input Fields
 
-Pregnancies
+## Prediction Output:
 
-Glucose
+**0** → Non-Diabetic
 
-Blood Pressure
+**1** → Diabetic
 
-Skin Thickness
 
-Insulin
-
-BMI
-
-Diabetes Pedigree Function
-
-Age
-
-Prediction Output:
-
-0 → Non-Diabetic
-
-1 → Diabetic
+## ⚙️ **Tech Stack**
+- **Backend**: Flask (Python)  
+- **Machine Learning**: scikit-learn  
+- **Data Handling**: pandas  
+- **Visualization**: matplotlib  
+- **Frontend**: HTML + Jinja2 Templates  
